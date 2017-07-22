@@ -1,0 +1,6 @@
+c:\users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.API\bin\Debug\netcoreapp1.1\CharEmCore.API.deps.json
+c:\users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.API\bin\Debug\netcoreapp1.1\CharEmCore.API.runtimeconfig.json
+c:\users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.API\bin\Debug\netcoreapp1.1\CharEmCore.API.runtimeconfig.dev.json
+c:\users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.API\bin\Debug\netcoreapp1.1\CharEmCore.API.dll
+c:\users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.API\obj\Debug\netcoreapp1.1\CharEmCore.API.csprojResolveAssemblyReference.cache
+c:\users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.API\obj\Debug\netcoreapp1.1\CharEmCore.API.AssemblyInfo.cs
