@@ -1,0 +1,9 @@
+C:\Users\aaron\OneDrive\Documents\Visual Studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\bin\Debug\netcoreapp1.1\CharEmCore.Repository.deps.json
+C:\Users\aaron\OneDrive\Documents\Visual Studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\bin\Debug\netcoreapp1.1\CharEmCore.Repository.runtimeconfig.json
+C:\Users\aaron\OneDrive\Documents\Visual Studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\bin\Debug\netcoreapp1.1\CharEmCore.Repository.runtimeconfig.dev.json
+C:\Users\aaron\OneDrive\Documents\Visual Studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\bin\Debug\netcoreapp1.1\CharEmCore.Repository.dll
+C:\Users\aaron\OneDrive\Documents\Visual Studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\obj\Debug\netcoreapp1.1\CharEmCore.Repository.AssemblyInfo.cs
+C:\Users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\bin\Debug\netcoreapp1.1\CharEmCore.Repository.pdb
+C:\Users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\obj\Debug\netcoreapp1.1\CharEmCore.Repository.dll
+C:\Users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\obj\Debug\netcoreapp1.1\CharEmCore.Repository.pdb
+C:\Users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\obj\Debug\netcoreapp1.1\CharEmCore.Repository.csprojResolveAssemblyReference.cache

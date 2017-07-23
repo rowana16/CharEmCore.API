@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CharEmCore.Repository.Entities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +11,7 @@ namespace CharEmCore.API.Entities
     {
         public Service()
         {
-            this.Locations = new HashSet<Location>();
+            this.ServiceLocations = new HashSet<ServiceLocations>();
             this.OtherContacts = new HashSet<Contact>();
         }
 
@@ -28,6 +30,7 @@ namespace CharEmCore.API.Entities
         public virtual Contact LeadContact { get; set; }
 
         public virtual ICollection<Contact> OtherContacts { get; set; }
-        public virtual ICollection<Location> Locations { get; set; }
+        //public virtual ICollection<Location> Locations { get; set; }
+        public ICollection<ServiceLocations> ServiceLocations { get; set; }
     }
 }
