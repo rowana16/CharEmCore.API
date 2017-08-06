@@ -10790,10 +10790,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aaron\\onedrive\\documents\\visual studio 2017\\Projects\\CharEmCore.API\\CharEmCore.API\\CharEmCore.API.csproj",
+      "projectUniqueName": "C:\\Users\\aaron\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\CharEmCore.API\\CharEmCore.API\\CharEmCore.API.csproj",
       "projectName": "CharEmCore.API",
-      "projectPath": "C:\\Users\\aaron\\onedrive\\documents\\visual studio 2017\\Projects\\CharEmCore.API\\CharEmCore.API\\CharEmCore.API.csproj",
-      "outputPath": "C:\\Users\\aaron\\onedrive\\documents\\visual studio 2017\\Projects\\CharEmCore.API\\CharEmCore.API\\obj\\",
+      "projectPath": "C:\\Users\\aaron\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\CharEmCore.API\\CharEmCore.API\\CharEmCore.API.csproj",
+      "outputPath": "C:\\Users\\aaron\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\CharEmCore.API\\CharEmCore.API\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -10801,8 +10801,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Users\\aaron\\onedrive\\documents\\visual studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\CharEmCore.Repository.csproj": {
-              "projectPath": "C:\\Users\\aaron\\onedrive\\documents\\visual studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\CharEmCore.Repository.csproj"
+            "C:\\Users\\aaron\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\CharEmCore.Repository.csproj": {
+              "projectPath": "C:\\Users\\aaron\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\CharEmCore.Repository.csproj"
             }
           }
         }

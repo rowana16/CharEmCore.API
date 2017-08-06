@@ -6,4 +6,4 @@ C:\Users\aaron\OneDrive\Documents\Visual Studio 2017\Projects\CharEmCore.API\Cha
 C:\Users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\bin\Debug\netcoreapp1.1\CharEmCore.Repository.pdb
 C:\Users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\obj\Debug\netcoreapp1.1\CharEmCore.Repository.dll
 C:\Users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\obj\Debug\netcoreapp1.1\CharEmCore.Repository.pdb
-C:\Users\aaron\onedrive\documents\visual studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\obj\Debug\netcoreapp1.1\CharEmCore.Repository.csprojResolveAssemblyReference.cache
+C:\Users\aaron\OneDrive\Documents\Visual Studio 2017\Projects\CharEmCore.API\CharEmCore.Repository\obj\Debug\netcoreapp1.1\CharEmCore.Repository.csprojResolveAssemblyReference.cache

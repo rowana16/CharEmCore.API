@@ -31,6 +31,8 @@ namespace CharEmCore.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<OrganizationLocations>().HasKey(s => new { s.OrganizationId, s.LocationId});
             modelBuilder.Entity<ServiceLocations>().HasKey(s => new { s.ServiceId, s.LocationId});
         }
