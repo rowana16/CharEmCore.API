@@ -8,6 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using CharEmCore.Repository;
+using CharEmCore.Repository.Repositories;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
 
 namespace CharEmCore.API
 {
@@ -17,19 +20,26 @@ namespace CharEmCore.API
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile("config.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+            _env = env;
         }
 
         public IConfigurationRoot Configuration { get; }
+        private IHostingEnvironment _env;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddDbContext<CharEmContext>();
+            services.AddSingleton(Configuration);
+            services.AddDbContext<CharEmContext>(ServiceLifetime.Scoped);
+            services.AddScoped<IRepositoryCRUD, CharEmRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddMemoryCache();
             services.AddMvc();
         }
 
