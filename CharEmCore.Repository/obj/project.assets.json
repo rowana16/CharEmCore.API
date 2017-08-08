@@ -10760,10 +10760,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aaron\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\CharEmCore.Repository.csproj",
+      "projectUniqueName": "C:\\Users\\aaron\\onedrive\\documents\\visual studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\CharEmCore.Repository.csproj",
       "projectName": "CharEmCore.Repository",
-      "projectPath": "C:\\Users\\aaron\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\CharEmCore.Repository.csproj",
-      "outputPath": "C:\\Users\\aaron\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\obj\\",
+      "projectPath": "C:\\Users\\aaron\\onedrive\\documents\\visual studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\CharEmCore.Repository.csproj",
+      "outputPath": "C:\\Users\\aaron\\onedrive\\documents\\visual studio 2017\\Projects\\CharEmCore.API\\CharEmCore.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

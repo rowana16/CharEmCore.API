@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using CharEmCore.Repository.Migrations;
 
 namespace CharEmCore.Repository
 {
@@ -34,17 +35,27 @@ namespace CharEmCore.Repository
         {
             services.AddSingleton(_config);
             services.AddDbContext<CharEmContext>();
+            services.AddTransient<Seed>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, Seed seeder)
         {
+            seeder.SeedCounty().Wait();
+
+            seeder.SeedCity().Wait();
+            seeder.SeedLocation().Wait();
+
             loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+           
+            
+            
 
            
         }
