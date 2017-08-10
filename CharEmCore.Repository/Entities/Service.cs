@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CharEmCore.API.Entities
+namespace CharEmCore.Repository.Entities
 {
     public class Service
     {
@@ -31,6 +31,6 @@ namespace CharEmCore.API.Entities
 
         public virtual ICollection<Contact> OtherContacts { get; set; }
         //public virtual ICollection<Location> Locations { get; set; }
-        public ICollection<ServiceLocations> ServiceLocations { get; set; }
+        public virtual ICollection<ServiceLocations> ServiceLocations { get; set; }
     }
 }

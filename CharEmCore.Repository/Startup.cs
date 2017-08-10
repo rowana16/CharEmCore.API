@@ -45,6 +45,11 @@ namespace CharEmCore.Repository
 
             seeder.SeedCity().Wait();
             seeder.SeedLocation().Wait();
+            seeder.SeedAddress().Wait();
+            seeder.SeedOrganization().Wait();
+            seeder.SeedServiceType().Wait();
+            seeder.SeedContact().Wait();
+            seeder.SeedSevice().Wait();
 
             loggerFactory.AddConsole();
 

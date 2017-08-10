@@ -1,4 +1,5 @@
-﻿using CharEmCore.API.Entities;
+﻿
+using CharEmCore.Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace CharEmCore.Repository.Migrations
         static List<Contact> _contacts;
         static List<ServiceType> _serviceTypes;
         static List<Service> _services;
+        static List<ServiceLocations> _serviceLocations;
 
         Dictionary<string, int> County;
         Dictionary<string, int> City;
@@ -37,7 +39,10 @@ namespace CharEmCore.Repository.Migrations
                 new County { Name = "Otsego"},
                 new County { Name = "None"}
             };
+        }
 
+        private void CreateCities()
+        {
             _cities = new List<City>
             {
                 new City { Name = "Alanson", CountyId = County["Emmet"]},
@@ -60,7 +65,10 @@ namespace CharEmCore.Repository.Migrations
                 new City { Name = "Vanderbilt", CountyId = County["Otsego"]},
                 new City { Name = "Wolverine", CountyId = County["Cheboygan"]}
             };
+        }
 
+        void CreateLocations()
+        {
             _locations = new List<Location>
             {
                 new Location { Name = "Resident - County - Emmet", CountyId = County["Antrim"], CityId = City["None"], IsSchool = false},
@@ -132,7 +140,10 @@ namespace CharEmCore.Repository.Migrations
                 new Location { Name = "Wolverine Elementary", CountyId = County["Cheboygan"], CityId = City["Wolverine"], IsSchool = true},
                 new Location { Name = "Wolverine High", CountyId = County["Cheboygan"], CityId = City["Wolverine"], IsSchool = true},
                 };
+        }
 
+        void CreateAddresses()
+        {
             _addresses = new List<Address>
             {
                 new Address {Address1 = "2350 Mitchell Park Drive", CityId = City["Petoskey"], State = "MI", Zip = "49770", CountyId = County["Emmet"]},
@@ -143,7 +154,10 @@ namespace CharEmCore.Repository.Migrations
                 new Address {Address1 = "03001 Church Road", CityId = City["Petoskey"], State = "MI", Zip = "49770", CountyId = County["Emmet"]},
                 new Address {Address1 = "434 East Lake Street", CityId = City["Petoskey"], State = "Michigan", Zip = "49770", CountyId = County["Emmet"]}
             };
+        }
 
+        void CreateOrganizations()
+        {
             _organizations = new List<Organization>
             {
                 new Organization{ Name = "Big Brothers / Big Sisters", Details = "We Provide Children With Strong And Enduring, Professionally Supported 1-To-1 Relationships That Change Their Lives For The Better. Our Goal Is To Help Children Obtain Higher Aspirations, Greater Confidence, And Better Relationships; Avoid Risky Behaviors And Obtain Educational Success.  We Offer Mentoring Opportunities Throughout The Community, As Well As School-Based Mentoring Programs In Specific Elementary Schools.", AddressId = Address["2350 Mitchell Park Drive"], Phone = "231-313-7323", Email = "christie.strahan@bigsupnorth.com"},
@@ -154,7 +168,10 @@ namespace CharEmCore.Repository.Migrations
                 new Organization{ Name = "Camp Daggett", Details = "We Provide Programs Specific To Youth Including: Traditional Summer Camp, Leadership Programs And The School Climate Program", AddressId = Address["03001 Church Road"], Phone = "231-347-9742", Email = "brent.marlatt@campdaggett.org"},
                 new Organization{ Name = "YMCA", Details = "We Provide Transformational Youth Programs That Develop Character, Build Self Confidence, Promote Healthy Lifestyle Choices. We Offer: An Afterschool Childcare Program For Students K-5, A Summer Day Camp For Students Ages 5-15, Physical Programs For Ages 3-4, Y Winners Basketball & Soccer, Y Karate, Y Archery, Jr. & First Lego League, Art Programs And More! The Y Makes Sure That Everyone, Regardless Of Age, Income Or Background, Has The Opportunity To Learn Grown And Thrive. ", AddressId = Address["434 East Lake Street"], Phone = "231-348-8393", Email = "csmith@ymcan.org"}
             };
+        }
 
+        void CreateContacts()
+        {
             _contacts = new List<Contact>
             {
                 new Contact{ Title = "Ms.", FirstName = "Christie ", LastName = "Ward-Strahan", DisplayName="Christie Ward-Strahan", Email = "christie.strahan@bigsupnorth.com", Phone = "231-313-7323", AddressId = Address["2350 Mitchell Park Drive"] },
@@ -165,7 +182,10 @@ namespace CharEmCore.Repository.Migrations
                 new Contact{ Title = "Mr.", FirstName = "Brent ", LastName = "Marlatt", DisplayName="Brent Marlatt", Email = "brent.marlatt@campdaggett.org", Phone = "231-347-9742", AddressId = Address["03001 Church Road"] },
                 new Contact{ Title = "Mr.", FirstName = "Christian ", LastName = "Smith", DisplayName="Christian Smith", Email = "csmith@ymcan.org", Phone = "231-348-8393", AddressId = Address["434 East Lake Street"] },
             };
+        }
 
+        void CreateServiceTypes()
+        {
             _serviceTypes = new List<ServiceType>
             {
                 new ServiceType {  Name ="Behavioral Services", Description = " "},
@@ -179,7 +199,10 @@ namespace CharEmCore.Repository.Migrations
                 new ServiceType {  Name ="Substance Use and Health Services", Description = " "},
                 new ServiceType {  Name ="Volunteering", Description = " "}
             };
+        }
 
+        void CreateServices()
+        {
             _services = new List<Service>
             {
                 new Service{ Name = "Jr. FIRST Lego League", Details = " ", ServiceTypeId = ServiceType["Recreation and Enrichment"], OrganizationId = Organization["YMCA"],LeadContactId = Contact["csmith@ymcan.org"]},
@@ -204,8 +227,17 @@ namespace CharEmCore.Repository.Migrations
                 new Service{ Name = "Healthy Relationships", Details = " ", ServiceTypeId = ServiceType["Educational Services"], OrganizationId = Organization["Women's Resource Center of N. Michigan"],LeadContactId = Contact["info@wrcnm.org"]},
                 new Service{ Name = "Before and After School Programs - Children's Learning Center", Details = " ", ServiceTypeId = ServiceType["Child Care"], OrganizationId = Organization["Women's Resource Center of N. Michigan"],LeadContactId = Contact["info@wrcnm.org"]},
 
-            }
+            };
         }
+
+        //void CreateServiceLocations()
+        //{
+        //    var ymcaId = _context.Organizations.Where(o => o.Name == "YMCA").FirstOrDefault().Id;
+
+        //    _serviceLocations = _context.Services.Where(s => s.OrganizationId == ymcaId).ToDictionary(s=>s.Id,)
+        //}
+
+
 
         public async Task SeedCounty()
         {
@@ -221,6 +253,8 @@ namespace CharEmCore.Repository.Migrations
 
         public async Task SeedCity()
         {
+            CreateCities();
+
             if (!_context.Cities.Any())
             {
                 _context.AddRange(_cities);
@@ -232,6 +266,8 @@ namespace CharEmCore.Repository.Migrations
 
         public async Task SeedLocation()
         {
+            CreateLocations();
+
             if (!_context.Locations.Any())
             {
                 _context.AddRange(_locations);
@@ -241,6 +277,8 @@ namespace CharEmCore.Repository.Migrations
 
         public async Task SeedAddress()
         {
+            CreateAddresses();
+
             if (!_context.Addresses.Any())
             {
                 _context.AddRange(_addresses);
@@ -252,6 +290,8 @@ namespace CharEmCore.Repository.Migrations
 
         public async Task SeedOrganization()
         {
+            CreateOrganizations();
+
             if (!_context.Organizations.Any())
             {
                 _context.AddRange(_organizations);
@@ -262,6 +302,8 @@ namespace CharEmCore.Repository.Migrations
 
         public async Task SeedServiceType()
         {
+            CreateServiceTypes();
+
             if (!_context.ServiceTypes.Any())
             {
                 _context.AddRange(_serviceTypes);
@@ -272,17 +314,21 @@ namespace CharEmCore.Repository.Migrations
 
         public async Task SeedContact()
         {
+            CreateContacts();
+
             if (!_context.Contacts.Any())
             {
                 _context.AddRange(_contacts);
                 await _context.SaveChangesAsync();
             }
 
-            Contact = _context.Contacts.ToDictionary(p => p., p => p.Id);
+            Contact = _context.Contacts.ToDictionary(p => p.Email, p => p.Id);
         }
 
         public async Task SeedSevice()
         {
+            CreateServices();
+
             if (!_context.Services.Any())
             {
                 _context.AddRange(_services);

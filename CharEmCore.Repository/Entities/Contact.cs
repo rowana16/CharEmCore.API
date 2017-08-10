@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CharEmCore.API.Entities
+namespace CharEmCore.Repository.Entities
 {
     public class Contact
     {
