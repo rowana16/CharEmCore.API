@@ -55,11 +55,52 @@ namespace CharEmCore.Repository.Repositories
             return _context.ServiceTypes.ToList();
         }
 
+        public IEnumerable<Organization> Organizations()
+        {
+            var organizations = _context.Organizations.ToList();
+            return organizations;
+        }
+
         public IEnumerable<Location> LocationsByServiceType(int serviceTypeId)
         {
-            var servicesByType = _context.Services.Where(s => s.ServiceTypeId == serviceTypeId).Select(s => s.Id) ;
-            var locations = _context.Locations.ToList();
-            return locations;
+            var servicesByServiceType = _context.Services
+                .Where(s => s.ServiceTypeId == serviceTypeId)                
+                .Distinct();
+
+
+            var organizationCountiesbyService = _context.OrganizationCounty                
+                .Join(servicesByServiceType,
+                        oc => oc.OrganizationId,
+                        o => o.OrganizationId,
+                        (OrganizationCounty, Service) => OrganizationCounty)
+                .Distinct();
+
+            var locations = _context.Locations
+                .Join(organizationCountiesbyService,
+                        l => l.CountyId,
+                        oc => oc.CountyId,
+                        (LocationResult, organizationCounties) => LocationResult)
+                .Where(l=>l.IsSchool == true)
+                .OrderBy(l=>l.Name)
+                .Distinct();
+                
+                
+
+            //var organizationIdsForSelectedServices = _context.Organizations
+            //    .Where(o => )
+            //    .Select(o=>o.Id);
+
+            //var countyIdsForSelectedOrganizations = _context.OrganizationCounty
+            //    .Where(oc => organizationIdsForSelectedServices.Contains(oc.OrganizationId))
+            //    .Select(oc => oc.CountyId);
+
+            //var locations = _context.Locations
+            //    .Where(l => countyIdsForSelectedOrganizations.Contains(l.CountyId))
+            //    .Where(l => l.IsSchool == true)
+            //    .Distinct()
+            //    .OrderBy(l => l.Name)
+            //    .ToList();
+            return locations.ToList();
                 
         }
 

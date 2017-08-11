@@ -20,5 +20,6 @@ namespace CharEmCore.Repository
         IEnumerable<ServiceType> ServiceTypesAll();
         IEnumerable<Location> LocationsByServiceType(int serviceTypeId);
         IEnumerable<Service> ServicesByLocation(int locationId);
+        IEnumerable<Organization> Organizations();
     }
 }

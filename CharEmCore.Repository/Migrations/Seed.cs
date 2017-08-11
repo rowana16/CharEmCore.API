@@ -263,15 +263,15 @@ namespace CharEmCore.Repository.Migrations
 
         public async Task SeedCity()
         {
-            CreateCities();
+            CreateCities();  // Create Dependent List
 
             if (!_context.Cities.Any())
             {
-                _context.AddRange(_cities);
+                _context.AddRange(_cities);  //Seed List
                 await _context.SaveChangesAsync();
             }
 
-            City = _context.Cities.ToDictionary(p => p.Name, p => p.Id);
+            City = _context.Cities.ToDictionary(p => p.Name, p => p.Id); //Create Dictionary with New Ids
         }
 
         public async Task SeedLocation()
