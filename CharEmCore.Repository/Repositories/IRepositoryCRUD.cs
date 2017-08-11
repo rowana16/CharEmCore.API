@@ -1,4 +1,5 @@
-﻿using CharEmCore.API.Entities;
+﻿
+using CharEmCore.Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,11 @@ namespace CharEmCore.Repository
         void Add<T>(T input) where T : class;
         void Update<T>(T input) where T : class;
 
-        IEnumerable<Service> GetAllServices();
-        Service GetService(int id);
+        IEnumerable<Service> ServicesAll();
+        Service ServiceById(int id);
+
+        IEnumerable<ServiceType> ServiceTypesAll();
+        IEnumerable<Location> LocationsByServiceType(int serviceTypeId);
+        IEnumerable<Service> ServicesByLocation(int locationId);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CharEmCore.Repository.Entities;
+using CharEmCore.Repository.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace CharEmCore.Repository.Entities
 {
-    public class Location
+    public class Location : DomainEntityBase
     {
         public Location()
-        {
-            OrganizationLocations = new HashSet<OrganizationLocations>();
+        {            
             ServiceLocations = new HashSet<ServiceLocations>();
         }
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool? IsSchool { get; set; }
@@ -22,7 +22,7 @@ namespace CharEmCore.Repository.Entities
         public int CityId { get; set; }
         public City City { get; set; }
         //public virtual ICollection<Organization> Organizations { get; set; }
-        public virtual ICollection<OrganizationLocations> OrganizationLocations { get; set; }
+        //public virtual ICollection<OrganizationLocations> OrganizationLocations { get; set; }
         //public virtual ICollection<Service> Services { get; set; }       
         public virtual ICollection<ServiceLocations> ServiceLocations { get; set; }
     }

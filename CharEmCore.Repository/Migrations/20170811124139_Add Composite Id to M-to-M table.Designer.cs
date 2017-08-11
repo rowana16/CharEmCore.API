@@ -8,9 +8,10 @@ using CharEmCore.Repository;
 namespace CharEmCore.Repository.Migrations
 {
     [DbContext(typeof(CharEmContext))]
-    partial class CharEmContextModelSnapshot : ModelSnapshot
+    [Migration("20170811124139_Add Composite Id to M-to-M table")]
+    partial class AddCompositeIdtoMtoMtable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

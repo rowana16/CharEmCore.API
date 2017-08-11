@@ -8,9 +8,10 @@ using CharEmCore.Repository;
 namespace CharEmCore.Repository.Migrations
 {
     [DbContext(typeof(CharEmContext))]
-    partial class CharEmContextModelSnapshot : ModelSnapshot
+    [Migration("20170810134859_Fix Many to Many")]
+    partial class FixManytoMany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -163,7 +164,7 @@ namespace CharEmCore.Repository.Migrations
 
                     b.HasKey("OrganizationId", "CountyId");
 
-                    b.HasAlternateKey("CountyId", "OrganizationId");
+                    b.HasIndex("CountyId");
 
                     b.ToTable("OrganizationCounty");
                 });

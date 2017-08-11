@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using CharEmCore.API.Entities;
+using CharEmCore.Repository.Entities;
 
 namespace CharEmCore.Repository.Repositories
 {
@@ -38,16 +38,34 @@ namespace CharEmCore.Repository.Repositories
             return (await _context.SaveChangesAsync()) > 0;
         }
 
-        public IEnumerable<Service> GetAllServices()
+        public IEnumerable<Service> ServicesAll()
         {
             return _context.Services.ToList();
         }
 
-        public Service GetService(int id)
+        public Service ServiceById(int id)
         {
             return _context.Services
                 .Where(s => s.Id == id)
                 .FirstOrDefault();
+        }
+
+        public IEnumerable<ServiceType> ServiceTypesAll()
+        {
+            return _context.ServiceTypes.ToList();
+        }
+
+        public IEnumerable<Location> LocationsByServiceType(int serviceTypeId)
+        {
+            var servicesByType = _context.Services.Where(s => s.ServiceTypeId == serviceTypeId).Select(s => s.Id) ;
+            var locations = _context.Locations.ToList();
+            return locations;
+                
+        }
+
+        public IEnumerable<Service> ServicesByLocation(int locationId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

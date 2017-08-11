@@ -42,7 +42,6 @@ namespace CharEmCore.Repository
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, Seed seeder)
         {
             seeder.SeedCounty().Wait();
-
             seeder.SeedCity().Wait();
             seeder.SeedLocation().Wait();
             seeder.SeedAddress().Wait();
@@ -50,6 +49,7 @@ namespace CharEmCore.Repository
             seeder.SeedServiceType().Wait();
             seeder.SeedContact().Wait();
             seeder.SeedSevice().Wait();
+            seeder.SeedOrganizationCounty().Wait();
 
             loggerFactory.AddConsole();
 

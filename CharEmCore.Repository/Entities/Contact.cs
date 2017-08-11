@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CharEmCore.Repository.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CharEmCore.Repository.Entities
 {
-    public class Contact
+    public class Contact : DomainEntityBase
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         public string Title { get; set; }
 

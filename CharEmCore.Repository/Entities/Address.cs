@@ -1,11 +1,12 @@
-﻿using System;
+﻿using CharEmCore.Repository.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace CharEmCore.Repository.Entities
 {
-    public class Address
+    public class Address : DomainEntityBase
     {
         public Address()
         {
@@ -13,7 +14,7 @@ namespace CharEmCore.Repository.Entities
             this.Organizations = new HashSet<Organization>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string State { get; set; }

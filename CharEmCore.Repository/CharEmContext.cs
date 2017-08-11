@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using CharEmCore.API.Entities;
+
 using CharEmCore.Repository.Entities;
 
 namespace CharEmCore.Repository
@@ -28,12 +28,13 @@ namespace CharEmCore.Repository
         public DbSet<Organization> Organizations { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServiceType> ServiceTypes { get; set; }
+        public DbSet<OrganizationCounty> OrganizationCounty { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<OrganizationLocations>().HasKey(s => new { s.OrganizationId, s.LocationId});
+            modelBuilder.Entity<OrganizationCounty>().HasKey(s => new { s.OrganizationId, s.CountyId});
             modelBuilder.Entity<ServiceLocations>().HasKey(s => new { s.ServiceId, s.LocationId});
         }
 

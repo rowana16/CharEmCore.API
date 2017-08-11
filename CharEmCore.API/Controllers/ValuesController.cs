@@ -22,7 +22,7 @@ namespace CharEmCore.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var services = _repo.GetAllServices();
+            var services = _repo.ServicesAll();
             return Ok(services);
         }
 
@@ -30,7 +30,7 @@ namespace CharEmCore.API.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var service = _repo.GetService(id);
+            var service = _repo.ServiceById(id);
             return Ok(service);
         }
 

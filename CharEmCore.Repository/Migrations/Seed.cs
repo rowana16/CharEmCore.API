@@ -1,4 +1,4 @@
-﻿
+﻿using CharEmCore.Repository.Helpers;
 using CharEmCore.Repository.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace CharEmCore.Repository.Migrations
         static List<Contact> _contacts;
         static List<ServiceType> _serviceTypes;
         static List<Service> _services;
-        static List<ServiceLocations> _serviceLocations;
+        static List<OrganizationCounty> _organizationCounty;
 
         Dictionary<string, int> County;
         Dictionary<string, int> City;
@@ -26,6 +26,7 @@ namespace CharEmCore.Repository.Migrations
         Dictionary<string, int> ServiceType;
         Dictionary<string, int> Organization;
         Dictionary<string, int> Contact;
+        
 
         public Seed(CharEmContext context)
         {
@@ -68,7 +69,7 @@ namespace CharEmCore.Repository.Migrations
         }
 
         void CreateLocations()
-        {
+        {            
             _locations = new List<Location>
             {
                 new Location { Name = "Resident - County - Emmet", CountyId = County["Antrim"], CityId = City["None"], IsSchool = false},
@@ -230,14 +231,23 @@ namespace CharEmCore.Repository.Migrations
             };
         }
 
-        //void CreateServiceLocations()
-        //{
-        //    var ymcaId = _context.Organizations.Where(o => o.Name == "YMCA").FirstOrDefault().Id;
-
-        //    _serviceLocations = _context.Services.Where(s => s.OrganizationId == ymcaId).ToDictionary(s=>s.Id,)
-        //}
-
-
+        void CreateOrganizationCounty()
+        {
+            _organizationCounty = new List<OrganizationCounty>
+            {
+                new OrganizationCounty { OrganizationId = Organization["YMCA"], CountyId = County["Emmet"]},
+                new OrganizationCounty { OrganizationId = Organization["YMCA"], CountyId = County["Charlevoix"]},
+                new OrganizationCounty { OrganizationId = Organization["Northern Community Mediation"], CountyId = County["Emmet"]},
+                new OrganizationCounty { OrganizationId = Organization["Northern Community Mediation"], CountyId = County["Charlevoix"]},
+                new OrganizationCounty { OrganizationId = Organization["Women's Resource Center of N. Michigan"], CountyId = County["Emmet"]},
+                new OrganizationCounty { OrganizationId = Organization["Women's Resource Center of N. Michigan"], CountyId = County["Charlevoix"]},
+                new OrganizationCounty { OrganizationId = Organization["Women's Resource Center of N. Michigan"], CountyId = County["Antrim"]},
+                new OrganizationCounty { OrganizationId = Organization["Women's Resource Center of N. Michigan"], CountyId = County["Cheboygan"]},
+                new OrganizationCounty { OrganizationId = Organization["Women's Resource Center of N. Michigan"], CountyId = County["Otsego"]},
+                new OrganizationCounty { OrganizationId = Organization["Big Brothers / Big Sisters"], CountyId = County["Emmet"]},
+                new OrganizationCounty { OrganizationId = Organization["Big Brothers / Big Sisters"], CountyId = County["Charlevoix"]}
+            };
+        }
 
         public async Task SeedCounty()
         {
@@ -332,6 +342,16 @@ namespace CharEmCore.Repository.Migrations
             if (!_context.Services.Any())
             {
                 _context.AddRange(_services);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task SeedOrganizationCounty()
+        {
+            CreateOrganizationCounty();
+            if (!_context.OrganizationCounty.Any())
+            {
+                _context.AddRange(_organizationCounty);
                 await _context.SaveChangesAsync();
             }
         }

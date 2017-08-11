@@ -8,9 +8,10 @@ using CharEmCore.Repository;
 namespace CharEmCore.Repository.Migrations
 {
     [DbContext(typeof(CharEmContext))]
-    partial class CharEmContextModelSnapshot : ModelSnapshot
+    [Migration("20170810164732_Add Id to M-to-M table")]
+    partial class AddIdtoMtoMtable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -161,9 +162,13 @@ namespace CharEmCore.Repository.Migrations
 
                     b.Property<int>("CountyId");
 
+                    b.Property<int>("Id");
+
                     b.HasKey("OrganizationId", "CountyId");
 
-                    b.HasAlternateKey("CountyId", "OrganizationId");
+                    b.HasAlternateKey("Id");
+
+                    b.HasIndex("CountyId");
 
                     b.ToTable("OrganizationCounty");
                 });

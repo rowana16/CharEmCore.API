@@ -1,4 +1,5 @@
 ﻿using CharEmCore.Repository.Entities;
+using CharEmCore.Repository.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CharEmCore.Repository.Entities
 {
-    public class Service
+    public class Service : DomainEntityBase
     {
         public Service()
         {
@@ -15,7 +16,7 @@ namespace CharEmCore.Repository.Entities
             this.OtherContacts = new HashSet<Contact>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
