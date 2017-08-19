@@ -44,6 +44,20 @@
           "lib/netstandard1.3/AutoMapper.dll": {}
         }
       },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
+          "Microsoft.Extensions.DependencyModel": "1.1.1"
+        },
+        "compile": {
+          "lib/netstandard1.6/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Libuv/1.9.1": {
         "type": "package",
         "dependencies": {
@@ -4440,6 +4454,18 @@
         "lib/netstandard1.1/AutoMapper.xml",
         "lib/netstandard1.3/AutoMapper.dll",
         "lib/netstandard1.3/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/2.0.1": {
+      "sha512": "YOMI/TncM6gBqXQm3SiHIhhe4TDcAHjnMFZJmqNBdR82BvTrx605KV8I/Pdmuz7GIgGJjnu8YJzyPrMMlZY4JQ==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/2.0.1",
+      "files": [
+        "automapper.extensions.microsoft.dependencyinjection.2.0.1.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "lib/net451/AutoMapper.Extensions.Microsoft.DependencyInjection.dll",
+        "lib/netstandard1.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll",
+        "lib/netstandard1.6/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
     "Libuv/1.9.1": {
@@ -11304,6 +11330,7 @@
     ".NETCoreApp,Version=v1.1": [
       "AspNetCoreRateLimit >= 1.0.5",
       "AutoMapper >= 6.1.1",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 2.0.1",
       "CharEmCore.Repository >= 1.0.0",
       "Marvin.Cache.Headers >= 1.0.0",
       "Microsoft.ApplicationInsights.AspNetCore >= 2.1.1",
@@ -11386,6 +11413,10 @@
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",
             "version": "1.1.1"
+          },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "2.0.1"
           },
           "AspNetCoreRateLimit": {
             "target": "Package",

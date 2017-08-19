@@ -38,6 +38,7 @@ namespace CharEmCore.API
             services.AddDbContext<CharEmContext>(ServiceLifetime.Scoped);
             services.AddScoped<IRepositoryCRUD, CharEmRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddAutoMapper();
 
             services.AddMemoryCache();
             services.AddMvc();

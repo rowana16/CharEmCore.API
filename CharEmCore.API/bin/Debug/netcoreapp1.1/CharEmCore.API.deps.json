@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "b22edff16760cd9a20109566bea5e34af47a9129"
+    "signature": "4b4d787c5109703657c5585466757c14fc702a14"
   },
   "compilationOptions": {
     "defines": [
@@ -25,6 +25,7 @@
         "dependencies": {
           "AspNetCoreRateLimit": "1.0.5",
           "AutoMapper": "6.1.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "2.0.1",
           "CharEmCore.Repository": "1.0.0",
           "Marvin.Cache.Headers": "1.0.0",
           "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
@@ -93,6 +94,19 @@
         },
         "compile": {
           "lib/netstandard1.3/AutoMapper.dll": {}
+        }
+      },
+      "automapper.extensions.microsoft.dependencyinjection/2.0.1": {
+        "dependencies": {
+          "AutoMapper": "6.1.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.1",
+          "Microsoft.Extensions.DependencyModel": "1.1.2"
+        },
+        "runtime": {
+          "lib/netstandard1.6/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.6/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "marvin.cache.headers/1.0.0": {
@@ -3728,6 +3742,13 @@
       "sha512": "sha512-A+6PAblvzmkXPS20nFBQJvlNSW5oEdyfN5+cxT/Du35fTNyuP5pNDXT64KT/jBgxt7CPduOM0Y7oLnNe0E5IXg==",
       "path": "automapper/6.1.1",
       "hashPath": "automapper.6.1.1.nupkg.sha512"
+    },
+    "automapper.extensions.microsoft.dependencyinjection/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YOMI/TncM6gBqXQm3SiHIhhe4TDcAHjnMFZJmqNBdR82BvTrx605KV8I/Pdmuz7GIgGJjnu8YJzyPrMMlZY4JQ==",
+      "path": "automapper.extensions.microsoft.dependencyinjection/2.0.1",
+      "hashPath": "automapper.extensions.microsoft.dependencyinjection.2.0.1.nupkg.sha512"
     },
     "marvin.cache.headers/1.0.0": {
       "type": "package",

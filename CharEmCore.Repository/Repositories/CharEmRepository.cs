@@ -33,9 +33,9 @@ namespace CharEmCore.Repository.Repositories
             var success = Save();
         }
 
-        public async Task<bool> Save()
+        public bool Save()
         {
-            return (await _context.SaveChangesAsync()) > 0;
+            return (_context.SaveChanges()) > 0;
         }
 
         public IEnumerable<Service> ServicesAll()
@@ -108,5 +108,89 @@ namespace CharEmCore.Repository.Repositories
         {
             throw new NotImplementedException();
         }
+
+        //Get
+        public IEnumerable<Address> Addresses()
+        {            
+            return _context.Addresses.ToList();
+        }
+
+        public IEnumerable<City> Cities()
+        {
+            return _context.Cities.ToList();
+        }
+
+        public IEnumerable<County> Counties()
+        {
+            return _context.Counties.ToList();
+        }
+
+        public IEnumerable<Contact> Contacts()
+        {
+            return _context.Contacts.ToList();
+        }
+
+        public IEnumerable<Location> Locations()
+        {
+            return _context.Locations.ToList();
+        }
+
+        public IEnumerable<ServiceType> ServiceTypes()
+        {
+            return _context.ServiceTypes.ToList();
+        }
+
+
+// Get One
+        public Address Addresses(int id)
+        {
+            return _context.Addresses.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public City Cities(int id)
+        {
+            return _context.Cities.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public County Counties(int id)
+        {
+            return _context.Counties.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public Contact Contacts(int id)
+        {
+            return _context.Contacts.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public Location Locations(int id)
+        {
+            return _context.Locations.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public Organization Organizations(int id)
+        {
+            return _context.Organizations.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public Service ServicesAll(int id)
+        {
+            return _context.Services.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public ServiceType ServiceTypes(int id)
+        {
+            return _context.ServiceTypes.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+
+        
+
+
+        //public County Counties(int id)
+        //{
+        //    return _context.Counties.Where(x => x.Id == id).FirstOrDefault();
+        //}
+
+
     }
 }
